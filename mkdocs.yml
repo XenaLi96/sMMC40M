@@ -108,6 +108,7 @@ extra:
 
 nav:
   - Home: index.md
+  - Talk: talk.md
   - Dataset:
       - dataset/index.md
       - Download: dataset/download.md

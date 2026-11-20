@@ -17,9 +17,9 @@ and Xenium, with H&amp;E crops available for eligible cells.</p>
 <div class="chips"><span class="chip scale">SCALE</span><span class="chip res">RESOLUTION</span><span class="chip ctx">CONTEXT</span></div>
 
 [Get the data](dataset/download.md){ .md-button .md-button--primary }
+[Watch the talk](talk.md){ .md-button }
 [Tutorials](tutorials/index.md){ .md-button }
 [Benchmark](benchmark.md){ .md-button }
-[GitHub](https://github.com/aicb-ZhangLabs/sMMC40M){ .md-button }
 </div>
 
 <div class="smcc-stats">
