@@ -23,24 +23,23 @@ and Xenium, with H&amp;E crops available for eligible cells.</p>
 </div>
 
 <div class="smcc-stats">
-<div class="smcc-stat"><div class="n">38.47M</div><div class="l">gene-positive cell / nucleus observations</div></div>
-<div class="smcc-stat"><div class="n">124</div><div class="l">acquisitions · 53 Visium HD + 71 Xenium</div></div>
-<div class="smcc-stat rust"><div class="n">32.68M</div><div class="l">cells with an eligible H&amp;E pairing</div></div>
-<div class="smcc-stat purple"><div class="n">23 · 7</div><div class="l">reporting categories · source species</div></div>
-<div class="smcc-stat amber"><div class="n">CC BY 4.0</div><div class="l">with per-sample attribution</div></div>
+<div class="smcc-stat"><div class="n">48.65M</div><div class="l">gene-positive cell / nucleus observations</div></div>
+<div class="smcc-stat"><div class="n">156</div><div class="l">acquisitions · 58 Visium HD + 98 Xenium</div></div>
+<div class="smcc-stat rust"><div class="n">32.93M</div><div class="l">cells with an eligible H&amp;E pairing</div></div>
+<div class="smcc-stat purple"><div class="n">7</div><div class="l">source species</div></div>
+<div class="smcc-stat amber"><div class="n">Licensing</div><div class="l"><a href="dataset/download/#license-and-attribution">per-source terms and attribution</a></div></div>
 </div>
-
-<figure markdown>
-![sMCC40M overview: cells by organ, species and technology; hierarchical morphology; text descriptions; expression, metadata and cell-cell communication](assets/dataset.png)
-<figcaption>Resource overview (author-supplied illustration). Numbers on this site follow the frozen
-<b>2026-10-28</b> public release; see <a href="dataset/">Dataset</a> for exact counts and denominators.</figcaption>
-</figure>
 
 ## What's new
 
 <!-- LATEST_UPDATES -->
 
 [All updates →](updates/index.md)
+
+<figure markdown>
+![sMCC40M overview: cells by organ, species and technology; hierarchical morphology; text descriptions; expression, metadata and cell-cell communication](assets/dataset.png)
+<figcaption>Overview from the original release. The <a href="dataset/">dataset page</a> reports counts for the current release.</figcaption>
+</figure>
 
 ## Why sMCC40M
 
@@ -53,8 +52,7 @@ sMCC40M provides cell-resolution data and is organized around three axes.
 
     ---
 
-    124 acquisitions in 23 reporting categories and 7 species, so encoders and readouts can be
-    compared under one matched protocol.
+    156 acquisitions across 7 species. The frozen benchmark provides matched protocols for comparing encoders and readouts.
 
 -   :material-grid:{ .lg } **Resolution**
 

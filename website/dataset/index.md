@@ -2,11 +2,11 @@
 
 sMCC40M connects spatial molecular measurements to histology, cell or nuclear geometry,
 spatial coordinates, acquisition metadata and source-backed biological context.
-The public release is the frozen version **2026-10-28** (schema 2.0.0).
+The [November 21, 2026 public release](https://huggingface.co/datasets/zhang-lab/sMCC40M/tree/7c0d215a4683e6f074177e708a192c416e2e2708) uses schema 2.0.0.
 
 !!! note "About the name and the number"
     "40M" denotes the resource scale, not an exact count of whole cells. The exact
-    gene-positive count in the public release is **38,472,192**. The NeurIPS paper also
+    gene-positive count in the public release is **48,652,230**. The NeurIPS paper also
     reports 53,989 observations from 21 in-house samples; in-house additions are announced in
     [What's new](../updates/index.md) as they are released. The code repository keeps the
     historical URL `sMMC40M`, and some data-side files keep historical `smcc` / `sMMC` identifiers.
@@ -20,31 +20,32 @@ Each observation joins, by `sample_id` + `cell_id`:
 | Expression | Raw non-negative integer counts (CSR) on the **original measured feature axis** | sample-level H5AD |
 | Geometry | Centroid in selected-image pixels and µm, segmentation mask | cell index Parquet, `obsm/spatial`, `obsm/spatial_um`, OME-TIFF masks |
 | Histology | Native-resolution H&E (or DAPI / IF) image and per-cell image eligibility | sample image, eligibility Parquet |
-| Context | Tissue, reporting category, diagnosis, condition, age, sex, study, source link | `metadata/samples.parquet`, [catalog CSV](https://github.com/aicb-ZhangLabs/sMMC40M/blob/main/data/sample_catalog.csv) |
+| Context | Tissue, reporting category, diagnosis, condition, age, sex, study, source link | `metadata/samples.parquet`, [original catalog CSV](https://github.com/aicb-ZhangLabs/sMMC40M/blob/main/data/sample_catalog.csv) |
 | Provenance | Source URL, license notice, checksums, lineage | `provenance/`, `licensing/`, `SHA256SUMS` |
 
 ## Counts and denominators
 
 | Quantity | Count | Meaning |
 | --- | ---: | --- |
-| Acquisitions | 124 | 53 Visium HD + 71 Xenium; **not** 124 independent donors |
-| Indexed candidates | 46,284,626 | Every segmentation / native candidate |
-| Gene-positive observations | 38,472,192 | At least one positive Gene Expression count |
-| Gene-positive whole cells | 36,431,039 | HD H&E + both Xenium branches |
+| Acquisitions | 156 | 58 Visium HD + 98 Xenium |
+| Indexed candidates | 58,481,495 | Every segmentation / native candidate |
+| Gene-positive observations | 48,652,230 | At least one positive Gene Expression count |
+| Gene-positive whole cells | 46,611,077 | Visium HD and Xenium cell records |
 | Gene-positive nuclei | 2,041,153 | HD IF branch; not additional cells |
-| Eligible H&E cell pairs | 32,682,585 | Gene-positive, centroid and mask in the selected image |
-| Complete 224 px H&E crops | 32,682,304 | Additional image-edge criterion |
+| Eligible H&E cell pairs | 32,929,907 | Gene-positive, centroid and mask in the selected image |
+| Complete 224 px H&E crops | 32,929,619 | Additional image-edge criterion |
 
 | Platform | Acquisitions | Gene-positive observations |
 | --- | ---: | ---: |
-| Visium HD | 53 | 13,660,756 |
-| Xenium | 71 | 24,811,436 |
-| **Total** | **124** | **38,472,192** |
+| Visium HD | 58 | 13,929,779 |
+| Xenium | 98 | 34,722,451 |
+| **Total** | **156** | **48,652,230** |
 
 ## Coverage
 
-**23 harmonized reporting categories.** They include developmental, plant, whole-organism and
-xenograft labels, so they are *not* 23 anatomical organs. Acquisitions per category:
+The original October 28 release used **23 harmonized reporting categories**, including
+developmental, plant, whole-organism and xenograft labels. The table below describes that
+original cohort. For current acquisition metadata, use the [sample index](download.md#pick-samples-first).
 
 | Category | n | Category | n | Category | n |
 | --- | ---: | --- | ---: | --- | ---: |
@@ -59,7 +60,7 @@ xenograft labels, so they are *not* 23 anatomical organs. Acquisitions per categ
 
 **7 source species:** human, mouse, rhesus macaque, rat, zebrafish, *Arabidopsis thaliana* and soybean.
 
-**Stains:** 105 H&E, 15 DAPI and 4 IF acquisitions.
+**Stains:** 110 H&E, 32 DAPI and 14 IF acquisitions.
 
 ## Quality control
 
@@ -67,16 +68,16 @@ xenograft labels, so they are *not* 23 anatomical organs. Acquisitions per categ
 ![Object counts per acquisition](../assets/qc_object_counts.png)
 </figure>
 
-Mask continuity, centroid consistency and per-acquisition QC tables are in the repository:
+The figure and repository links describe the original release. New acquisition packages provide their own QC and eligibility files. See also the [updated validation report](https://huggingface.co/datasets/zhang-lab/sMCC40M/blob/7c0d215a4683e6f074177e708a192c416e2e2708/validation.json).
 [quality control notes](https://github.com/aicb-ZhangLabs/sMMC40M/blob/main/docs/quality_control.md) ·
 [compact QC table](https://github.com/aicb-ZhangLabs/sMMC40M/blob/main/data/qc/sample_qc_compact.csv) ·
 [gene panels](https://github.com/aicb-ZhangLabs/sMMC40M/blob/main/data/qc/sample_gene_panels.csv).
 
 ## Things to know before you analyze
 
-- **Missing panel genes are unmeasured, not zero.** There are 84 feature-axis definitions; avoid a zero-filled global gene union. A shared `gene_table_id` means an identical measured axis.
+- **Missing panel genes are unmeasured, not zero.** Use each acquisition’s measured feature axis and avoid a zero-filled global gene union. A shared `gene_table_id` means an identical measured axis.
 - **Select Gene Expression explicitly** on Xenium; keep negative controls and other feature types separate.
 - **HD UMIs and Xenium transcript counts are different measurement types.**
-- **Acquisitions are not assumed to be independent donors.** Five known material groups span 16 acquisitions.
+- **Acquisitions are not assumed to be independent donors.** Check source-material relationships in the release metadata.
 - **Predicted HD cell types are evidence, not ground truth**, and sample tumor status is not a per-cell malignancy label.
 - **Pixel sizes vary.** Native-pixel crop sizes and physical µm windows are different quantities.

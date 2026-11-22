@@ -3,11 +3,11 @@
 ## Release layout
 
 ```text
-2026-10-28/
+sMCC40M-2026-11-21/
   release.json                 # version and exact counts
   manifest.json, SHA256SUMS     # versioned file inventory
   metadata/
-    samples.parquet            # 124-row starting index; root-relative paths
+    samples.parquet            # 156-row starting index; root-relative paths
     schema.json
     biological_context.parquet
     field_evidence.parquet
@@ -65,4 +65,4 @@ adata.file.close()
 ```
 
 Full schema: [`data/schema.json`](https://github.com/aicb-ZhangLabs/sMMC40M/blob/main/data/schema.json) ·
-release facts: [`data/release_summary.json`](https://github.com/aicb-ZhangLabs/sMMC40M/blob/main/data/release_summary.json).
+[current release counts and metadata](https://huggingface.co/datasets/zhang-lab/sMCC40M/blob/7c0d215a4683e6f074177e708a192c416e2e2708/release.json).

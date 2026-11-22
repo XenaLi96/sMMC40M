@@ -1,14 +1,14 @@
 site_name: sMCC40M
 site_description: >-
   A context-aware dataset and benchmark for single-cell spatial transcriptomics:
-  38.5M gene-positive cell and nucleus observations with expression, geometry,
+  48.65M gene-positive cell and nucleus observations with expression, geometry,
   sample context and documented image eligibility.
 site_url: https://xenali96.github.io/sMMC40M/
 repo_url: https://github.com/aicb-ZhangLabs/sMMC40M
 repo_name: aicb-ZhangLabs/sMMC40M
 edit_uri: edit/main/website/
 copyright: >-
-  Code: see repository license · Data: CC BY 4.0 with per-sample attribution ·
+  Code: see repository license · Data: per-source terms and attribution ·
   Zhang Lab, UC Irvine
 
 docs_dir: website
