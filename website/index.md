@@ -27,7 +27,7 @@ and Xenium, with H&amp;E crops available for eligible cells.</p>
 <div class="smcc-stat"><div class="n">156</div><div class="l">acquisitions · 58 Visium HD + 98 Xenium</div></div>
 <div class="smcc-stat rust"><div class="n">32.93M</div><div class="l">cells with an eligible H&amp;E pairing</div></div>
 <div class="smcc-stat purple"><div class="n">7</div><div class="l">source species</div></div>
-<div class="smcc-stat amber"><div class="n">Licensing</div><div class="l"><a href="dataset/download/#license-and-attribution">per-source terms and attribution</a></div></div>
+<div class="smcc-stat amber"><div class="n">CC BY 4.0</div><div class="l">with per-sample attribution</div></div>
 </div>
 
 ## What's new
